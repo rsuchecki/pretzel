@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('about');
   this.route('mapview');
   this.route('markers');
+  this.route('login');
 });
 
 export default Router;

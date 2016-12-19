@@ -2,7 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  chromosomes: DS.attr(),
+  chromosomes: DS.hasMany('chromosome'),
 
   extraMaps: [],
   isSelected: false,

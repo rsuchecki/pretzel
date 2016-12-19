@@ -10,20 +10,10 @@
 
 module.exports = 
 	# sails automatically adds 'created at' and 'updated at' fields that we don't want.
-	autoCreatedAt: false
-	autoUpdatedAt: false
-
-	autoPK : false
 	attributes :
-		id:
-			type: 'integer'
-			primaryKey: true
-			autoIncrement: true
-
 		name:
 			type: 'string'
 			required: true
 
-		length:
-			type: 'integer'
-			required: true
+		markers:
+      collection: 'marker'

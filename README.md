@@ -52,6 +52,32 @@ Note that `npm install` in `backend/` and `frontend/` will install the Express.j
 Ember.js dependencies, including Express.js and Ember.js themselves, into those directories. For
 example, `ember` is in `frontend/node_modules/ember-cli/bin/`.
 
+### rough setup of ember-data-partial-model
+
+Here's how I set up to use ember-data-partial-model;  maybe can simplify this.
+
+Get the source Luke
+```
+cd ~/local/git_clones/
+mkdir ember
+git clone https://github.com/BookingSync/ember-data-partial-model
+cd ember-data-partial-model/
+npm -g install 
+```
+
+I prefer to 'sudo npm -g install ...', but somehow that didn't resolve the reference, so I also local installed it:
+```
+cd Dav127/frontend
+sudo npm -g install
+sudo npm -g install ember-data-partial-model
+
+bower install
+
+npm install ember-data-partial-model
+```
+
+
+
 ### Set-up configs
 
 Ember needs to be pointed to the URL and namespace of the API in . By default, it is assumed that you

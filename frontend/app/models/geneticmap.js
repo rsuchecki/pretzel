@@ -9,7 +9,7 @@ export default PartialModel.extend({
   name: attr('string'),
 
   extended: partial('geneticmap', 'extended', {
-    chromosomes: attr()
+    chromosomes: DS.hasMany('chromosome', { async: false })
   }),
 
   extraMaps: [],

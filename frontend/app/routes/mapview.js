@@ -61,12 +61,15 @@ export default Ember.Route.extend({
         return map.get('extended');
       });
     });
-    
+
     return Ember.RSVP.hash(promises).then(function(extendedMaps) {
+      console.log('extendedMaps:');
+      console.log(extendedMaps);
       params.mapsToView.forEach(function(param) {
         let mapName = param;
         retHash[mapName] = {};
         extendedMaps[param].get('chromosomes').forEach(function(chr) {
+          console.log(chr);
           let chrName = chr.name;
           console.log(chrName);
           seenChrs.add(chrName);

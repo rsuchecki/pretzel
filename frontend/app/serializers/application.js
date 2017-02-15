@@ -8,5 +8,5 @@ import DS from 'ember-data';
 import PartialModelRESTSerializer from 'ember-data-partial-model/mixins/rest-serializer';
 
 export default DS.RESTSerializer.extend(PartialModelRESTSerializer, {
-  //primaryKey: '_id'
+  primaryKey: '_id'
 });

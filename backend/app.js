@@ -18,11 +18,11 @@ var geneticmapSchema = new mongoose.Schema({
   name: String,
   chromosomes: [
     {
-      _id: false,
+      //_id: false,
       name: String,
       markers: [
         {
-          _id: false,
+          //_id: false,
           name: String,
           position: Number
         }
@@ -31,14 +31,14 @@ var geneticmapSchema = new mongoose.Schema({
   ]
 },
 {
-  toJSON: {
+  /*toJSON: {
     transform: function (doc, ret, options) {
       // remove the _id of every document before returning the result
       ret.id = ret._id;
       delete ret._id;
       delete ret.__v;
     }
-  }
+  }*/
 });
 
 var geneticmapModel = mongoose.model('geneticmap', geneticmapSchema);

@@ -55,6 +55,34 @@ var geneticmapModel = mongoose.model('geneticmap', geneticmapSchema);
 
 mongoose.connect('mongodb://localhost/test');
 
+app.get('/markers', function(req,res) {
+  geneticmapModel.
+  aggregate({ $unwind: "$chromosomes"}, { $unwind: "$chromosomes.markers" }).
+  exec(
+    function(err,docs) {
+    if(err) {
+      res.send(err);
+    }
+    else {
+      res.send({'geneticmaps': docs});
+    }
+  });
+});
+
+app.get('/markers/:id', function(req,res) {
+  geneticmapModel.find({"chromosomes.markers.name": req.params.id}).
+  select({ name: 1 }). // Only keep name.
+  exec(
+    function(err,docs) {
+    if(err) {
+      res.send(err);
+    }
+    else {
+      res.send({'geneticmaps': docs});
+    }
+  });
+});
+
 app.get('/geneticmaps', function(req,res) {
   // Get all geneticmaps.
   geneticmapModel.find({}).

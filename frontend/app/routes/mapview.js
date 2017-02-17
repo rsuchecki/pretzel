@@ -50,6 +50,9 @@ export default Ember.Route.extend({
             }
           }
         }
+        else {
+          that.controllerFor("mapview").set("availableChrs", []);
+        }
         map.set('extraMaps', exMaps);
       });
     });
@@ -69,19 +72,18 @@ export default Ember.Route.extend({
         let mapName = param;
         retHash[mapName] = {};
         extendedMaps[param].get('chromosomes').forEach(function(chr) {
-          console.log(chr);
-          let chrName = chr.name;
+          let chrName = chr.get('name');
           console.log(chrName);
           seenChrs.add(chrName);
           that.controllerFor("mapview").set("availableChrs", Array.from(seenChrs).sort());
           console.log(seenChrs);
           if (chrName == params.chr) {
             retHash[mapName][mapName+"_"+chrName] = [];
-            chr.markers.forEach(function(marker) {
+            chr.get('markers').forEach(function(marker) {
               retHash[mapName][mapName+"_"+chrName].pushObject(
                 {"map": mapName+"_"+chrName,
-                 "marker": marker.name,
-                 "location": marker.position
+                 "marker": marker.get('name'),
+                 "location": marker.get('position')
                 }
               );
             });

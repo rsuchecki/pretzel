@@ -1,0 +1,16 @@
+<div class="upload-map" {{action 'upload'}}></div>
+
+<div class="items">
+  {{#each queue as |QueuedFile index|}}
+    <div class="item">
+      <div class="inner">
+        {{QueuedFile.file.name}}
+      </div>
+    </div>
+  {{/each}}
+</div>
+{{!--<div>
+<input type="file" name="new-map", id="new-map" />
+<div>
+{{upload-map url="/upload-map"}}
+</div>--}}

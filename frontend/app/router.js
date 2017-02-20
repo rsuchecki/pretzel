@@ -9,6 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('about');
   this.route('mapview');
+  this.route('usermapview');
   this.route('geneticmaps', { path: '/geneticmaps' }, function() {
     this.route('geneticmap', { path: '/:geneticmap_id' });
   });

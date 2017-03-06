@@ -20,11 +20,16 @@ var geneticmapSchema = new mongoose.Schema({
     {
       //_id: false,
       name: String,
-      markers: [
+      linkagegroups: [
         {
-          //_id: false,
           name: String,
-          position: Number
+          markers: [
+            {
+              //_id: false,
+              name: String,
+              position: Number
+            }
+          ]
         }
       ]
     }
@@ -39,9 +44,13 @@ var geneticmapSchema = new mongoose.Schema({
         for (chr of ret.chromosomes) {
           chr.id = chr._id;
           delete chr._id;
-          for (marker of chr.markers) {
-            marker.id = marker._id;
-            delete marker._id;
+          for (lg of chr.linkagegroups) {
+            lg.id = lg._id;
+            delete lg._id;
+            for (marker of lg.markers) {
+              marker.id = marker._id;
+              delete marker._id;
+            }
           }
         }
       }
@@ -97,5 +106,5 @@ app.post('/geneticmaps', (req, res) => {
 });
 
 app.listen(1776, function () {
-  console.log('Example app listening on port 1776!')
+  console.log('Example app listening on port 1777!')
 })

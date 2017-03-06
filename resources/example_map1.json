@@ -4,16 +4,36 @@
     "chromosomes":
     [
       {
-      "name": "MyChr",
-      "markers":
+        "name": "MyChr",
+        "linkagegroups":
         [
           {
-          "name": "markerA",
-          "position": 1
+          "name": "MyChr1",
+          "markers":
+            [
+              {
+              "name": "markerA",
+              "position": 1
+              },
+              {
+              "name": "markerB",
+              "position": 1.5
+              }
+            ]
           },
           {
-          "name": "markerB",
-          "position": 1.5
+          "name": "MyChr2",
+          "markers":
+            [
+              {
+              "name": "markerC",
+              "position": 1.7
+              },
+              {
+              "name": "markerD",
+              "position": 1.8
+              }
+            ]
           }
         ]
       }

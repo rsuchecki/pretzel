@@ -5,5 +5,5 @@ import attr from 'ember-data/attr';
 
 export default DS.Model.extend({
   name: attr('string'),
-  linkageGroups: DS.hasMany('linkagegroup', { async: false })
+  markers: DS.hasMany('marker', { async: false })
 });

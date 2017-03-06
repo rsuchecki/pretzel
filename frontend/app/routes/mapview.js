@@ -77,13 +77,15 @@ export default Ember.Route.extend({
           console.log(seenChrs);
           if (chrName == params.chr) {
             retHash[mapName][mapName+"_"+chrName] = [];
-            chr.get('markers').forEach(function(marker) {
-              retHash[mapName][mapName+"_"+chrName].pushObject(
-                {"map": mapName+"_"+chrName,
-                 "marker": marker.get('name'),
-                 "location": marker.get('position')
-                }
-              );
+            chr.get('linkagegroups').forEach(function(lg) {
+              lg.get('markers').forEach(function(marker) {
+                retHash[mapName][mapName+"_"+chrName].pushObject(
+                  {"map": mapName+"_"+chrName,
+                   "marker": marker.get('name'),
+                   "location": marker.get('position')
+                  }
+                );
+              });
             });
           }
         });

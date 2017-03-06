@@ -5,7 +5,7 @@ import ApplicationSerializer from './application';
 export default ApplicationSerializer.extend(DS.EmbeddedRecordsMixin, {
 
   attrs: {
-    markers: { embedded: 'always' }
+    linkagegroups: { embedded: 'always' }
   }
 
 });

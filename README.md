@@ -1,7 +1,4 @@
 # Dav127
-<<<<<<< HEAD
-A Sails/Ember/D3 framework to display and interactively navigate complex datasets
-=======
 An Express/Ember/D3 framework to display and interactively navigate complex datasets.
 
 Developed by
@@ -10,7 +7,6 @@ Developed by
 - CSIRO, Canberra, Australia.
 
 Funded by the Grains Research Development Corporation (GRDC).
->>>>>>> 141b6b0... Update README.
 
 <img
 src="https://cloud.githubusercontent.com/assets/20571319/19416034/f1ee92b8-93d0-11e6-94a8-c18018ba40dc.png" align="center">

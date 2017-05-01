@@ -74,7 +74,10 @@ export default Ember.Route.extend({
           let markerName = marker.get('name');
           let markerPosition = marker.get('position');
           let markerAliases = marker.get('aliases');
-          retHash[chr][markerName] = {location: markerPosition, aliases: markerAliases};
+          let markerGroup = marker.get('group');
+          retHash[chr][markerName] = {location: markerPosition,
+                                      aliases: markerAliases,
+                                      group: markerGroup};
         });
       });
       return retHash;

@@ -21,7 +21,8 @@ var chromosomeSchema = new mongoose.Schema({
       //_id: false,
       name: String,
       position: Number,
-      aliases: {type: [String], default: []}
+      aliases: {type: [String], default: []},
+      group: {type: String, default: ""}
     }
   ]
 },

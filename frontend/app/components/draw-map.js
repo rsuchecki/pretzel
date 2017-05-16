@@ -426,8 +426,8 @@ chromosome : >=1 linkageGroup-s layed out vertically:
       return Math.round((num + 0.00001) * 100) / 100;
     }
     /*------------------------------------------------------------------------*/
-    const trace_stack = 2;
-    const trace_alias = 2;
+    const trace_stack = 1;
+    const trace_alias = 1;
     function Stacked(apName, portion) {
       this.apName = apName;
       this.mapName = cmName[apName].mapName;  // useful in devel trace.
@@ -1926,7 +1926,7 @@ chromosome : >=1 linkageGroup-s layed out vertically:
                     marker1 = aliasedM1 || marker0,
                   mmaa = [marker0, marker1, a0, a1];
                   pu.push(mmaa);
-                  console.log(" pu", pu.length);
+                  // console.log(" pu", pu.length);
                 }
               });
             }
@@ -2207,6 +2207,7 @@ chromosome : >=1 linkageGroup-s layed out vertically:
        * @param d0, d1 marker names, i.e. a0:m0, a1:m1.
        * Iff d1!==undefined, they are connected by an alias.
        * @param ma0, ma1  marker objects.
+       * ma1 will be undefined when called from axisMarkerTick()
        */
       function pathMarkerStore(sLine, d0, d1, ma0, ma1)
       {
@@ -2227,7 +2228,8 @@ chromosome : >=1 linkageGroup-s layed out vertically:
         {
           hoverExtraText += 
             "<div>" + markerAliasesText(d0, ma0) + "</div>" +
-          "<div>" + markerAliasesText(d1, ma1) + "</div>";
+            (ma1 ? 
+          "<div>" + markerAliasesText(d1, ma1) + "</div>" : "");
         }
         let d = d1 && (d1 != d0) ? d0 + "_" + d1: d0;
         pathMarkers[sLine][d] = hoverExtraText; // 1;
@@ -2831,7 +2833,7 @@ chromosome : >=1 linkageGroup-s layed out vertically:
       let g = d3.selectAll(".foreground > g");
       if (unique_1_1_mapping)
       {
-        console.log("pathUpdate() pathData", pathData.length, pathData, g.size());
+        console.log("pathUpdate() pathData", pathData.length, g.size()); // , pathData
         g = g.data(pathData);
         console.log("exit", g.exit().size(), "enter", g.enter().size());
         g.exit().remove();

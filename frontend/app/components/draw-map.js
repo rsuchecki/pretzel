@@ -2832,7 +2832,7 @@ chromosome : >=1 linkageGroup-s layed out vertically:
       if (unique_1_1_mapping)
       {
         console.log("pathUpdate() pathData", pathData.length, pathData, g.size());
-        g.data(pathData);
+        g = g.data(pathData);
         console.log("exit", g.exit().size(), "enter", g.enter().size());
         g.exit().remove();
         let gn = g.enter().append("g");

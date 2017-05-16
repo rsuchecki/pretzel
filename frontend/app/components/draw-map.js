@@ -1903,7 +1903,7 @@ chromosome : >=1 linkageGroup-s layed out vertically:
                  * asymmetric alias groups.  In that case, we classify the alias
                  * as non-unique. */
                 differentAlias = aliasedM0 != marker0;
-                if (trace_alias && differentAlias)
+                if (trace_alias > 1 && differentAlias)
                   console.log("aliasedM1", aliasedM1, "aliasedM0", aliasedM0, marker0, za0[marker0], za1[aliasedM1], aam[a1.apName][marker0], aam[a0.apName][aliasedM1]);
 
                 let d0 = marker0, d1 = aliasedM1,
@@ -1914,6 +1914,7 @@ chromosome : >=1 linkageGroup-s layed out vertically:
                   debugger;
                 }
 
+		  if (trace_alias > 1)
                 console.log("collateStacks()", d0, d1, a0.mapName, a1.mapName, a0, a1, za0[d0], za1[d1]);
 
               }
@@ -2453,8 +2454,18 @@ chromosome : >=1 linkageGroup-s layed out vertically:
           return ! selectedAps.some(function(p) {
             /** d is markerName, p is apName. */
             let smp = selectedMarkers[p];
+	      let sel = unique_1_1_mapping ?
+		  (smp[d[0]] || smp[d[1]])
+		  : smp[d];
             // maNamePos is e.g. "markerD 0.4".
+	      /* note : if unique_1_1_mapping then d+" " does toString on d (mmaa) : calls stacked.toString(), position.toString() for both stack
             return smp.some(function(maNamePos) { return maNamePos.includes(d+" "); });
+	    */
+	      if (sel)
+	      {
+		  console.log(this, d, p, smp[d[0]], smp[d[1]]);
+	      }
+	      return sel;
           });
           // not used
           return !d3.keys(selectedMarkers).every(function(p) {

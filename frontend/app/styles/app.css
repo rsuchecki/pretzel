@@ -789,6 +789,61 @@ ul#display-blocks > li.selected,
   font-weight: bold;
 }
 
+/* -------------------------------------------------------------------------- */
+
+#observational-table thead > tr > th  > div {
+  transform: rotate(-90deg);
+  overflow-y: visible;
+  display: inline-block;
+  border : 1px dashed red;
+}
+
+#observational-table thead > tr > th {
+  overflow-y: visible;
+  display: inline;
+  border : 1px dashed purple;
+  line-height: 10em;
+  vertical-align: initial;
+}
+
+/* perhaps not needed */
+#observational-table > div.ht_clone_top.handsontable > div.wtHolder
+{
+  height : inherit !important;
+}
+#observational-table > div.ht_clone_top.handsontable > div.wtHolder,
+#observational-table > div.ht_clone_top.handsontable,
+#observational-table > div.ht_clone_top_left_corner.handsontable,
+#observational-table > div.ht_clone_top.handsontable > div > div > div > table,
+#observational-table > div.ht_clone_top.handsontable > div > div > div > table > thead,
+#observational-table > div.ht_clone_top.handsontable > div > div > div > table > thead > tr,
+#observational-table > div.ht_clone_top.handsontable > div > div > div > table > thead > tr > th > div > span
+{
+  overflow-y : visible !important;
+  display : block;
+  border : 1px dashed green;
+  line-height : initial;
+  /* height:10em !important; */
+}
+#observational-table > div.ht_clone_top.handsontable > div > div > div > table > thead > tr > th > div > span
+{
+  overflow-y : hidden;
+  border : 1px dashed blue;
+}
+#observational-table > div.ht_clone_top.handsontable
+{
+  height : inherit !important;
+  border : 1px dashed orange;
+}
+
+#observational-table > div.ht_master.handsontable > div > div > div > table > colgroup > col:nth-child(n+2)
+{
+  width: 1.5em !important;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
 g.axis-outer.selected > text {
   font-weight: bold;
 }

@@ -9,7 +9,16 @@
               margin-left: 1em;
               "  >
     <div>
-      <label>Filter by Chromosome : </label>
+      <label>Filter on already loaded</label>
+    </div>
+    <div>
+      <input type="checkbox" 
+             id="checkbox-toggleModePathHover" 
+             name="toggleCheckbox" 
+      />
+    </div>
+    <div>
+      <label>Filter by Scope : </label>
     </div>
     <div>
       <select id="chromosomeName">
@@ -29,17 +38,10 @@
     </div>
 
     <div>
-      <label>Filter by sub-Genome : </label>
+      <label>Search keyword in metadata :</label>
     </div>
     <div>
-      <select id="subGenomeName">
-        {{#each (array 
-           "All"
-           "A" "B" "D"
-           ) as |subGenomeName|}}
-          <option>{{subGenomeName}}</option>
-        {{/each}}
-      </select>
+      <input id="metadataKeywords">      
     </div>
 
     <div>
@@ -47,7 +49,7 @@
     </div>
     <div>
       <select id="filterName">
-        {{#each (array  "feature search" "child blocks" "species" "author") as |filterName|}}
+        {{#each (array  "feature search" "child blocks" "species" "author" "sub-Genome") as |filterName|}}
           <option>{{filterName}}</option>
         {{/each}}
       </select>
@@ -65,10 +67,10 @@
 
   <li class="list-group-item"
       style="
-        width: 93%;
-        margin-left: 1em;
-        margin-top: 1em;
-      "  >
+             width: 93%;
+             margin-left: 1em;
+             margin-top: 1em;
+             "  >
     <div style="overflow-y: auto;">
       {{content-editable
         value=selection
@@ -79,8 +81,28 @@
       <span class="pull-right" style="margin-top: 3em;">
         {{elem/button-refresh}}
       </span>
+      <button class="btn">Copy from Selection</button>
+      {{!-- onclick={{action 'copySelectedFeatures'}}  --}}
+
     </div>
   </li>
+
+  {{!-- This is less important, so it can be added via the pull-down as required. --}}
+{{#if 0}}
+  <div>
+    <label>Filter by sub-Genome : </label>
+  </div>
+  <div>
+    <select id="subGenomeName">
+      {{#each (array 
+         "All"
+         "A" "B" "D"
+         ) as |subGenomeName|}}
+        <option>{{subGenomeName}}</option>
+      {{/each}}
+    </select>
+  </div>
+{{/if}}
 
 
 

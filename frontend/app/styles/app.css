@@ -886,7 +886,7 @@ div#goto-feature > div
 div.featureFilter
 {
   overflow-y: scroll;
-  width: 87%;
+  width: 100%;
   /* border: 1px blue solid; */
   height: 5em;
   min-height: 5em;

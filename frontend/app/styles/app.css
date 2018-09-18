@@ -881,3 +881,15 @@ div#goto-feature > div
   display:inline-block;
   vertical-align: middle;
 }
+/* -------------------------------------------------------------------------- */
+
+div.featureFilter
+{
+  overflow-y: scroll;
+  width: 87%;
+  /* border: 1px blue solid; */
+  height: 5em;
+  min-height: 5em;
+}
+ 
+/* -------------------------------------------------------------------------- */

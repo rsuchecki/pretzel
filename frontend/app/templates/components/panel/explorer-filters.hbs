@@ -1,0 +1,88 @@
+<ul class="list-group">
+
+  <div style="
+              display: grid;
+              width : 93%;
+              grid-template-columns: 1fr 1fr;
+              align-items: start;
+              justify-content: space-evenly;
+              margin-left: 1em;
+              "  >
+    <div>
+      <label>Filter by Chromosome : </label>
+    </div>
+    <div>
+      <select id="chromosomeName">
+        {{#each (array 
+           "All"
+           "1A" "1B" "1D"
+           "2A" "2B" "2D"
+           "3A" "3B" "3D"
+           "4A" "4B" "4D"
+           "5A" "5B" "5D"
+           "6A" "6B" "6D"
+           "7A" "7B" "7D"
+           ) as |chromosomeName|}}
+          <option>{{chromosomeName}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div>
+      <label>Filter by sub-Genome : </label>
+    </div>
+    <div>
+      <select id="subGenomeName">
+        {{#each (array 
+           "All"
+           "A" "B" "D"
+           ) as |subGenomeName|}}
+          <option>{{subGenomeName}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div>
+      <label>Select a filter to add : </label>
+    </div>
+    <div>
+      <select id="filterName">
+        {{#each (array  "feature search" "child blocks" "species" "author") as |filterName|}}
+          <option>{{filterName}}</option>
+        {{/each}}
+      </select>
+
+      <span class="pull-right">
+        {{elem/button-base
+          classSize='xs'
+          classColour='success'
+          icon='plus'
+        }}
+      </span>
+    </div>
+  </div>
+
+
+  <li class="list-group-item"
+      style="
+        width: 93%;
+        margin-left: 1em;
+        margin-top: 1em;
+      "  >
+    <div style="overflow-y: auto;">
+      {{content-editable
+        value=selection
+        placeholder="Paste Feature Names Here"
+        class="featureFilter colouredFeatures pasteData"
+        type="text"
+      }}
+      <span class="pull-right" style="margin-top: 3em;">
+        {{elem/button-refresh}}
+      </span>
+    </div>
+  </li>
+
+
+
+</ul>
+
